@@ -1,24 +1,29 @@
 #Functions
 #create user
 def create_workmail_user(org_id,name,display_name,password):
-    response = workmail.create_user(
-        OrganizationId=org_id,
-        Name=name,
-        DisplayName=display_name,
-        Password=password
-    )
-    print(response)
-    return (response.get('UserId'))
+    try:
+        response = workmail.create_user(
+            OrganizationId=org_id,
+            Name=name,
+            DisplayName=display_name,
+            Password=password
+        )
+        print(response)
+        return (response.get('UserId'))
+    except workmail.exceptions.NameAvailabilityException:
+        print "User already exists"
 
 
 #register user
 def register_workmail_user(org_id,user_id,email):
-    response = workmail.register_to_work_mail(
-        OrganizationId=org_id,
-        EntityId=user_id,
-        Email=email
-    )
-    print(response)
+    try:
+        response = workmail.register_to_work_mail(
+            OrganizationId=org_id,
+            EntityId=user_id,
+            Email=email
+        )
+        print(response)
+
 
 #get user email
 def describe_workmail_user(org_id,user_id):
