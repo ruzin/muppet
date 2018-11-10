@@ -51,5 +51,5 @@ $ export AWS_DEFAULT_REGION="us-west-2"
 $ terraform init
 $ terraform apply
 ```
-- If you are happy with the plan, proceed and your AWS account will be created.
-
+- If you are happy with the plan, proceed and your AWS account will be created :)
+- Note: You may want to reset the root account password for the account that was created. See [here](https://aws.amazon.com/premiumsupport/knowledge-center/organizations-member-account-access/) for details. For some bizarre reason, AWS still hasn't exposed the API calls to automate this :(.
