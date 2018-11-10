@@ -64,12 +64,6 @@ if __name__ == "__main__":
     import os, sys, boto3
     from botocore.exceptions import ClientError
 
-    session = boto3.Session(profile_name='sandbox')
-
-    #select workmail service
-    workmail = session.client('workmail')
-    iam = session.client('iam')
-
     #Set environment variables
     try:  
         os.environ["user_name"]
@@ -97,6 +91,12 @@ if __name__ == "__main__":
     password=os.environ['password']
     email=os.environ['email']
     workmail_org_id=os.environ['workmail_org_id']
+
+    #Set boto3 session
+    session = boto3.Session(profile_name='sandbox')
+
+    #select workmail service
+    workmail = session.client('workmail')
 
     #Call functions
     user_id = create_workmail_user(workmail_org_id,user_name,user_name,password)

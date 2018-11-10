@@ -1,6 +1,10 @@
 # Muppet
 ## Description
-Muppet is a combination of python/terraform scripts that fully automates and version controls AWS account creation.
+Muppet is a combination of python/terraform scripts that fully automates and version controls AWS account creation. 
+
+Use Case
+-------------------------------
+Organizations/Individuals that have an existing AWS master/billing account and want to create multiple AWS accounts with billing tied to their master account. Muppet is not suitable if your use case is to create a personal/singular AWS account.
 
 Core Components
 -------------------------------
@@ -14,9 +18,13 @@ Pre-requisites
 -------------------------------
 Prior to using Muppet, the following pre-requisites need to be in place:
 
+- **[AWS Organizations](https://aws.amazon.com/organizations/)**: Set up AWS Organizations in your master/billing AWS account. All accounts that you create using Muppet will fall under this Organization.
 - **[AWS Workmail](https://aws.amazon.com/workmail/)**: Create an AWS workmail account. The first 25 users are free to create and then its $4 per user per month.
-- **Terraform/Boto3**: Ensure that you have installed terraform/boto3 in the environment that you are running Muppet in.
+- **Terraform/Boto3**: Ensure that you have installed Terraform/Boto3 in the environment that you are running Muppet in. Familiarize yourself with the concept of [Modules](https://www.terraform.io/docs/modules/usage.html) in Terraform.
 
 Getting Started & Documentation
 -------------------------------
+Muppet is very simple to use, hence the name :P. To get started:
+- Clone the repository locally
+- In example.tf
 
