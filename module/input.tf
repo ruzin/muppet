@@ -8,7 +8,7 @@ variable "password" {
 
 variable "workmail_org_id" {
     type = "string"
-    default = ""
+    default = "m-a7e401f516734fbb981a0d9f329474ba"
 }
 
 variable "workmail_account" {
