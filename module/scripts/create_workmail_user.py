@@ -62,7 +62,7 @@ def describe_workmail_user(org_id,user_id):
 #Main method
 if __name__ == "__main__":
     import os, sys, boto3
-    from botocore.exceptions import ClientError, ParamValidationError
+    from botocore.exceptions import ClientError
 
     session = boto3.Session(profile_name='sandbox')
 
