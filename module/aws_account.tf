@@ -15,7 +15,7 @@ resource "null_resource" "create_workmail_user" {
 
 
 # Create aws account in the organization
-# resource "aws_organizations_account" "aws_account" {
-#   name  = "$(var.account_name)"
-#   email = "${lower(var.account_name)}@${var.workmail_account_domain}"
-# }
+resource "aws_organizations_account" "new_account" {
+  name  = "$(var.account_name)"
+  email = "${lower(var.account_name)}@${lower(var.workmail_account_domain)}"
+}
