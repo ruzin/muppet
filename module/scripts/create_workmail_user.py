@@ -2,10 +2,10 @@
 
 ###Valid Exceptions for Workmail client###
 #[MailDomainNotFoundException, OrganizationStateException, UnsupportedOperationException, 
-#EntityAlreadyRegisteredException, MailDomainStateException, InvalidConfigurationException, OrganizationNotFoundException, 
-#EntityStateException, EntityNotFoundException, ReservedNameException, InvalidParameterException, 
-#DirectoryServiceAuthenticationFailedException, NameAvailabilityException, EmailAddressInUseException, 
-#DirectoryUnavailableException, InvalidPasswordException]
+#EntityAlreadyRegisteredException, MailDomainStateException, InvalidConfigurationException, 
+#OrganizationNotFoundException, EntityStateException, EntityNotFoundException, ReservedNameException, 
+#InvalidParameterException, DirectoryServiceAuthenticationFailedException, NameAvailabilityException, 
+#EmailAddressInUseException, DirectoryUnavailableException, InvalidPasswordException]
 
 #Create workmail user
 def create_workmail_user(org_id,name,display_name,password):
@@ -66,6 +66,21 @@ if __name__ == "__main__":
 
     #Set environment variables
     try:  
+        os.environ["AWS_ACCESS_KEY_ID"]
+    except KeyError: 
+        print "Please set the environment variable AWS_ACCESS_KEY_ID"
+        sys.exit(1)
+    try:  
+        os.environ["AWS_SECRET_ACCESS_KEY"]
+    except KeyError: 
+        print "Please set the environment variable AWS_SECRET_ACCESS_KEY"
+        sys.exit(1)
+    try:  
+        os.environ["AWS_DEFAULT_REGION"]
+    except KeyError: 
+        print "Please set the environment variable AWS_DEFAULT_REGION"
+        sys.exit(1)
+    try:  
         os.environ["user_name"]
     except KeyError: 
         print "Please set the environment variable user_name"
@@ -92,8 +107,8 @@ if __name__ == "__main__":
     email=os.environ['email']
     workmail_org_id=os.environ['workmail_org_id']
 
-    #Set boto3 session
-    session = boto3.Session(profile_name='sandbox')
+    #Start session
+    session = boto3.Session()
 
     #select workmail service
     workmail = session.client('workmail')

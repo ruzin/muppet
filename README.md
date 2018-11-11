@@ -44,7 +44,7 @@ password = "your_password"
 ```
 $ export AWS_ACCESS_KEY_ID="anaccesskey"
 $ export AWS_SECRET_ACCESS_KEY="asecretkey"
-$ export AWS_DEFAULT_REGION="us-west-2"
+$ export AWS_DEFAULT_REGION="eu-west-1"
 ```
 - Run terraform init & then terraform apply. 
 ```
