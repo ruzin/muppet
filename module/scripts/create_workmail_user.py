@@ -62,13 +62,7 @@ def describe_workmail_user(org_id,user_id):
 #Main method
 if __name__ == "__main__":
     import os, sys, boto3
-    from botocore.exceptions import ClientError, ParamValidationError
-
-    session = boto3.Session(profile_name='sandbox')
-
-    #select workmail service
-    workmail = session.client('workmail')
-    iam = session.client('iam')
+    from botocore.exceptions import ClientError
 
     #Set environment variables
     try:  
@@ -97,6 +91,12 @@ if __name__ == "__main__":
     password=os.environ['password']
     email=os.environ['email']
     workmail_org_id=os.environ['workmail_org_id']
+
+    #Set boto3 session
+    session = boto3.Session(profile_name='sandbox')
+
+    #select workmail service
+    workmail = session.client('workmail')
 
     #Call functions
     user_id = create_workmail_user(workmail_org_id,user_name,user_name,password)
