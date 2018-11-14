@@ -1,9 +1,9 @@
 #Module Call
 module "example_account" {
 source = "./module"
-workmail_org_id = "m-xxxxxxxxxxxxxxxxxxxx"
-workmail_account_domain = "your_workamil_domain.com"
-account_name = "example-name1"
+workmail_org_id = "m-xxxxxxxxxxxxxxxxxx"
+workmail_account_domain = "your-domain.com"
+account_name = "example-name"
 password = "Password1234!"
  }
 
