@@ -16,7 +16,8 @@ def create_workmail_user(org_id,name,display_name,password):
             DisplayName=display_name,
             Password=password
         )
-        print(response)
+        print(response['ResponseMetadata']['HTTPStatusCode'])
+        print("Workmail User %s Created." % name) 
         return (response.get('UserId'))
     except workmail.exceptions.NameAvailabilityException as e:
         print "User already exists. Change the account_name and re-apply."
@@ -37,7 +38,8 @@ def register_workmail_user(org_id,user_id,email):
             EntityId=user_id,
             Email=email
         )
-        print(response)
+        print(response['ResponseMetadata']['HTTPStatusCode'])
+        print("Workmail User Enabled.") 
     except ClientError as e:
         print(e.response['Error']['Code'])
         print(e.response['Error']['Message'])
